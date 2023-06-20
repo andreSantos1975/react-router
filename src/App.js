@@ -1,4 +1,4 @@
-
+import { useState } from 'react';
 import './App.css';
 import { Home } from './components/Home';
 import { Services } from './components/Services';
@@ -9,17 +9,20 @@ import { Footer } from './components/Footer';
 import { Error } from './components/Error';
 
 import { Routes, Route, Navigate } from 'react-router-dom';
+import { Reservada } from './components/Reservada';
 
 function App() {
+
+  const [logado] = useState(false)
   return (
     <>
-    <Header />
+      <Header />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route caseSensitive={true} path='/services' element={<Services />} />
+        <Route path='/services/*' element={<Services />} />
         <Route path='/contacts' element={<Contacts />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/outro' element={<Navigate to='/about' />}/>
+        <Route path='/about/:id' element={<About />} />
+        <Route path='/reserved' element={logado ? <Reservada /> : <Navigate to='/' />} />
         <Route path='*' element={<Error />} />
       </Routes>
       <Footer />
