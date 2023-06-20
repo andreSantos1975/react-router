@@ -1,0 +1,7 @@
+=================================================================================================================
+
+INSTALAÇÃO DO REACT ROUTER
+npm install react-router-dom@6
+
+INSTALAÇÃO DO BOOTSTRAP
+npm install react-bootstrap bootstrap
